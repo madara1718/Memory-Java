@@ -4,6 +4,7 @@
  */
 package com.mycompany.memory;
 
+import java.util.ArrayList;
 import javax.swing.JLabel;
 
 /**
@@ -12,20 +13,32 @@ import javax.swing.JLabel;
  */
 public class GUI extends javax.swing.JFrame {
 
+    private ArrayList<MemoryCard> memoryCardList;
+    private ArrayList<MemoryPanelCard> grpahicMemoryCardList;
     /**
      * Creates new form GUI
      */
     public GUI() {
-        initComponents();
         generarPaneles();
-        
+        agregarPanelesLista();
+        initComponents();
+        agregarPaneles();
+
     }
-     public void generarPaneles(){
-         for (int i = 0; i < 20; i++) {
-             jPanel1.add(new JLabel("kk"));
-             
+
+    public void generarPaneles() {
+        for (int i = 0; i < 48; i++) {
+             memoryCardList.add(new MemoryCard(i,"kk "+i));
          }
-     }
+    }
+
+    public void agregarPanelesLista() {
+        for (int i = 0; i <  8; i++) {
+            MemoryPanelCard.add(new MemoryPanelCard(new MemoryCard(i, "kk " + i)));
+
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +52,7 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(6, 6, 1, 1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -47,14 +60,14 @@ public class GUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
